@@ -1,0 +1,60 @@
+# Visual Studio
+.vs/
+
+# Build Results
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.user
+*.suo
+*.userosscache
+*.userprefs
+
+# Auto-generated files
+*.generated.cs
+
+# Backup & report files
+*.log
+*.tlog
+*.ide*
+
+# Package files
+*.nupkg
+*.snupkg
+*.nuspec
+
+# Environment files
+.env
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows-specific files
+Thumbs.db
+desktop.ini
+
+# macOS-specific files
+.DS_Store
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# NuGet
+*.nupkg
+*.snupkg
