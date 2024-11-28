@@ -6,6 +6,8 @@ builder.AddArchitectures();
 
 var app = builder.Build();
 app.AddApplications();
-app.MapEmployeeRoutes();
+app
+    .MapEmployeeRoutes()
+    .MapCostumerRoutes();
 
 app.Run();
