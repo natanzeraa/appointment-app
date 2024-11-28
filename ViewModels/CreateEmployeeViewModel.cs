@@ -1,3 +1,4 @@
+using AppointmentApplication.Models;
 using Flunt.Notifications;
 using Flunt.Validations;
 

@@ -2,6 +2,7 @@
 using AppointmentApplication.Models;
 using AppointmentApplication.ViewModels;
 
+
 namespace AppointmentApplication.Routes;
 
 public static class EmployeeRoutes
