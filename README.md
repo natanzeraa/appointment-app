@@ -9,6 +9,32 @@ Este app foi feito com o intuito de *aprender mais sobre o universo .NET* e ente
 ### Tecnologias utizadas
 [![My Skills](https://skillicons.dev/icons?i=dotnet,cs,sqlite,rider&perline=4)](https://skillicons.dev)
 
+
+### Estrutura do projeto
+
+```
+appointment-app
+│   .gitignore
+│   app.db
+│   app.db-shm
+│   app.db-wal
+│   AppointmentApplication.csproj
+│   AppointmentApplication.csproj.user
+│   AppointmentApplication.sln
+│   appsettings.Development.json
+│   appsettings.json
+│   Program.cs
+├───bin
+├───Data
+├───Extensions
+├───Migrations
+├───Models
+├───obj
+├───Properties
+├───Routes
+└───ViewModels
+```
+
 ---
 
 ### Rodando o projeto localmente
