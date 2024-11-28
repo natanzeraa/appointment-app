@@ -5,10 +5,10 @@ namespace AppointmentApplication.ViewModels
 {
     public class CreateEmployeeViewModel : Notifiable<Notification>
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Profession { get; set; }
+        public string FirstName { get; set; } = string.Empty!;
+        public string LastName { get; set; } = string.Empty!;
+        public string Email { get; set; } = string.Empty!;
+        public string Profession { get; set; } = string.Empty!;
 
         public Employee MapTo()
         {
