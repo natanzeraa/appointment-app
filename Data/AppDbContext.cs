@@ -7,6 +7,8 @@ namespace AppointmentApplication.Data
     {
         public required DbSet<Employee> Employees { get; set; }
         public required DbSet<Costumer> Costumers { get; set; }
+        public required DbSet<Service> Services { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("DataSource=app.db;Cache=Shared");
