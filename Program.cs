@@ -9,6 +9,7 @@ app.AddApplications();
 app
     .MapEmployeeRoutes()
     .MapCostumerRoutes()
-    .MapServiceRoutes();
+    .MapServiceRoutes()
+    .MapAppointmentRoutes();
 
 app.Run();
