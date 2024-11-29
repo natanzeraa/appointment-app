@@ -8,6 +8,7 @@ var app = builder.Build();
 app.AddApplications();
 app
     .MapEmployeeRoutes()
-    .MapCostumerRoutes();
+    .MapCostumerRoutes()
+    .MapServiceRoutes();
 
 app.Run();
