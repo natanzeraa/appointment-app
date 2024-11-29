@@ -694,6 +694,291 @@ Depois que a API estiver rodando você pode acessar essa visualização através
 
 ---
 
+<details>
+  <summary>Agendamentos</summary>
+
+  ## GET Buscar todos os agendamentos
+
+  GET /api/v1/appointment
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  [
+    {
+      "start": "string",
+      "end": "string",
+      "employee": {
+        "name": "string",
+        "email": "string",
+        "profession": "string"
+      },
+      "service": {
+        "name": "string",
+        "description": "string",
+        "price": 0
+      },
+      "costumer": {
+        "name": "string",
+        "phoneNumber": "string"
+      }
+    }
+  ]
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» start|string|false|none||name|
+  |» end|string|false|none||description|
+  |» employee|object|false|none||none|
+  |»» name|string|true|none||none|
+  |»» email|string|true|none||none|
+  |»» profession|string|true|none||none|
+  |» service|object|false|none||none|
+  |»» name|string|true|none||none|
+  |»» description|string|true|none||none|
+  |»» price|integer|true|none||none|
+  |» costumer|object|false|none||none|
+  |»» name|string|true|none||none|
+  |»» phoneNumber|string|true|none||none|
+
+  ## GET Buscar um agendamento
+
+  GET /api/v1/appointment/{id}
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  {
+    "id": "string",
+    "start": "string",
+    "end": "string",
+    "employee": {
+      "name": "string",
+      "email": "string",
+      "profession": "string"
+    },
+    "service": {
+      "name": "string",
+      "description": "string",
+      "price": 0
+    },
+    "costumer": {
+      "name": "string",
+      "phoneNumber": "string"
+    }
+  }
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» start|string|true|none||none|
+  |» end|string|true|none||none|
+  |» employee|object|true|none||none|
+  |»» name|string|true|none||none|
+  |»» email|string|true|none||none|
+  |»» profession|string|true|none||none|
+  |» service|object|true|none||none|
+  |»» name|string|true|none||none|
+  |»» description|string|true|none||none|
+  |»» price|integer|true|none||none|
+  |» costumer|object|true|none||none|
+  |»» name|string|true|none||none|
+  |»» phoneNumber|string|true|none||none|
+
+  ## DELETE Remover um agendamento
+
+  DELETE /api/v1/appointment/{id}
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+
+  > Response Examples
+
+  > 204 Response
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|Inline|
+  |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **204**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» start|string|true|none||none|
+  |» end|string|true|none||none|
+  |» employeeId|string|true|none||none|
+  |» costumerId|string|true|none||none|
+  |» serviceId|string|true|none||none|
+
+  ## POST Criar um novo agendamento
+
+  POST /api/v1/appointment/new
+
+  > Body Parameters
+
+  ```json
+  {
+    "start": "string",
+    "end": "string",
+    "employeeId": "string",
+    "costumerId": "string",
+    "serviceId": "string"
+  }
+  ```
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |body|body|object| no |none|
+  |» start|body|string| yes |none|
+  |» end|body|string| yes |none|
+  |» employeeId|body|string| yes |none|
+  |» costumerId|body|string| yes |none|
+  |» serviceId|body|string| yes |none|
+
+  > Response Examples
+
+  > 201 Response
+
+  ```json
+  {
+    "id": "string",
+    "start": "string",
+    "end": "string",
+    "service": "string",
+    "price": 0,
+    "employee": "string",
+    "costumer": "string"
+  }
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **201**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» start|string|true|none||none|
+  |» end|string|true|none||none|
+  |» service|string|true|none||none|
+  |» price|integer|true|none||none|
+  |» employee|string|true|none||none|
+  |» costumer|string|true|none||none|
+
+  ## PUT Editar um agendamento
+
+  PUT /api/v1/appointment{id}
+
+  > Body Parameters
+
+  ```json
+  {
+    "start": "string",
+    "end": "string",
+    "employeeId": "string",
+    "costumerId": "string",
+    "serviceId": "string"
+  }
+  ```
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+  |body|body|object| no |none|
+  |» start|body|string| yes |none|
+  |» end|body|string| yes |none|
+  |» employeeId|body|string| yes |none|
+  |» costumerId|body|string| yes |none|
+  |» serviceId|body|string| yes |none|
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  {
+    "id": "string",
+    "start": "string",
+    "end": "string",
+    "employeeId": "string",
+    "costumerId": "string",
+    "serviceId": "string"
+  }
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» start|string|true|none||none|
+  |» end|string|true|none||none|
+  |» employeeId|string|true|none||none|
+  |» costumerId|string|true|none||none|
+  |» serviceId|string|true|none||none|
+</details>
+
+---
+
 ####
 
 <div align="center" >
