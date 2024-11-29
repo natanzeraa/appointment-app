@@ -476,6 +476,221 @@ Depois que a API estiver rodando você pode acessar essa visualização através
   |» phoneNumber|string|true|none||phoneNumber|
 </details>
 
+---
+
+<details>
+  <summary>Serviços</summary>
+  
+  ## GET Buscar todos os serviços
+
+  GET /api/v1/service
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  [
+    {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "price": 0
+    }
+  ]
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» name|string|true|none||name|
+  |» description|string|true|none||description|
+  |» price|number|true|none||price|
+
+  ## POST Criar um novo serviço
+
+  POST /api/v1/service/new
+
+  > Body Parameters
+
+  ```json
+  {
+    "name": "string",
+    "description": "string",
+    "price": 0
+  }
+  ```
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |body|body|object| no |none|
+  |» name|body|string| yes |name|
+  |» description|body|string| yes |description|
+  |» price|body|number| yes |price|
+
+  > Response Examples
+
+  > 201 Response
+
+  ```json
+  {
+    "id": "string",
+    "name": "string",
+    "description": "string",
+    "price": 0
+  }
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **201**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» name|string|true|none||name|
+  |» description|string|true|none||description|
+  |» price|number|true|none||price|
+
+  ## GET Buscar um serviço
+
+  GET /api/v1/service/{id}
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  {
+    "id": "string",
+    "name": "string",
+    "description": "string",
+    "price": 0
+  }
+  ```
+
+  > 404 Response
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+  |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» name|string|true|none||name|
+  |» description|string|true|none||description|
+  |» price|number|true|none||price|
+
+  ## PUT Atualizar um serviço
+
+  PUT /api/v1/service/{id}
+
+  > Body Parameters
+
+  ```json
+  {
+    "name": "string",
+    "description": "string",
+    "price": 0
+  }
+  ```
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+  |body|body|object| no |none|
+  |» name|body|string| yes |name|
+  |» description|body|string| yes |description|
+  |» price|body|number| yes |price|
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  {
+    "id": "string",
+    "name": "string",
+    "description": "string",
+    "price": 0
+  }
+  ```
+
+  > 404 Response
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+  |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» name|string|true|none||name|
+  |» description|string|true|none||description|
+  |» price|number|true|none||price|
+
+  ## DELETE Deletar um serviço
+
+  DELETE /api/v1/service/{id}
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+
+  > Response Examples
+
+  > 204 Response
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|null|
+  |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|none|Inline|
+</details>
 
 ---
 
