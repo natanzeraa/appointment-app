@@ -10,7 +10,7 @@ Este app foi feito com o intuito de *aprender mais sobre o universo .NET* e ente
 ---
 
 ### Tecnologias utizadas
-[![My Skills](https://skillicons.dev/icons?i=dotnet,cs,sqlite,rider&perline=4)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=dotnet,cs,sqlite,visualstudio&perline=4)](https://skillicons.dev)
 
 
 ### Estrutura do projeto
@@ -65,98 +65,421 @@ Para rodar esse projeto localmente é muito simples, mas você vai precisar ter 
 
 ### Endpoints
 
-Nesse projeto estou utilizando 👉 **[Swagger](https://swagger.io/)** para documentar os endpoints e manter uma visualização clara e objetiva do que estamos construindo.
+Nesse projeto estou utilizando 👉 **[Swagger](https://swagger.io/)** para documentar os endpoints e manter uma visualização clara e objetiva do que estou construindo. 
+
+Além disso comecei a utilizar recentemente o 👉 **[APIDog](https://apidog.com/)** para documentar minhas API's e manter um fluxo de desenvolvimento consistente entre Backend e Frontend. Nele é possível "mockar" dados e manter o trabalho constante em ambos os lados mesmo quando não temos um determinado endpoint em pleno funcionamento ainda, além de que temos uma visualização clara e objetiva dos dados de entrada e saída que cada endpoint vai receber e assim poder seguir a "regra de negócio" do backend. Recomendo muito essa ferramenta 😎
+
+Mas seguindo aqui nossa configuração de ambiente 👇
 
 Depois que a API estiver rodando você pode acessar essa visualização através da url 👉 *http://localhost:5056/swagger/index.html*
 
-### GET Buscar todos os colaboradores
+####
 
-**GET** 👉 */api/v1/employees*
+**_Agora confere logo aqui abaixo todos os endpoints da aplicação com as especificações de entrada e saída de dados 👇_**
 
-> Response Examples
-
-> 200 Response
-
-```json
-[
-  {
-    "id": "5b8ae3d0-a5fa-4e25-b00d-421f5b5635b8",
-    "firstName": "Elenir",
-    "lastName": "Teixeira da Costa",
-    "email": "elenir_nails@gmail.com",
-    "profession": "Manicure"
-  },
-  {
-    "id": "50efe024-2baa-4dbe-99f3-fc6d2862c24d",
-    "firstName": "Elizangela",
-    "lastName": "Mendes",
-    "email": "elizzhairdresser@gmail.com",
-    "profession": "Cabeleireira"
-  },
-  {
-    "id": "a0606426-7d60-461e-8800-43c1ede7a995",
-    "firstName": "Kirstin",
-    "lastName": "Muller",
-    "email": "Golden_Trantow@hotmail.com",
-    "profession": "Extencionista de Cílios"
-  }
-]
-```
-
-#### Responses
-
-|HTTP Status Code |Meaning|Description|Data schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
-
-#### Responses Data Schema
-
-### POST Criar um novo colaborador
-
-**POST** 👉 */api/v1/employee/new*
-
-> Body Parameters
-
-```json
-{
-  "FirstName": "string",
-  "LastName": "string",
-  "Email": "string",
-  "Profession": "string"
-}
-```
-
-#### Params
-
-|Name|Location|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object| no |none|
-|» FirstName|body|string| yes |none|
-|» LastName|body|string| yes |none|
-|» Email|body|string| yes |none|
-|» Profession|body|string| yes |none|
-
-> Response Examples
-
-> 201 Response
-
-```json
-{
-  "id": "a0606426-7d60-461e-8800-43c1ede7a995",
-  "firstName": "Kirstin",
-  "lastName": "Muller",
-  "email": "Golden_Trantow@hotmail.com",
-  "profession": "Extencionista de Cílios"
-}
-```
-
-#### Responses
-
-|HTTP Status Code |Meaning|Description|Data schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|Inline|
+####
 
 ---
+
+<details>
+  <summary>Colaboradores</summary>
+
+  ## GET Buscar todos os colaboradores
+
+  GET /employee/test
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  [
+    {
+      "id": "string",
+      "firstName": "string",
+      "lastName": "string",
+      "email": "string",
+      "profession": "string"
+    }
+  ]
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» firstName|string|true|none||firstName|
+  |» lastName|string|true|none||lastName|
+  |» email|string|true|none||email|
+  |» profession|string|true|none||profession|
+
+  ## GET Buscar um colaborador
+
+  GET /api/v1/employee/{id}
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  {
+    "id": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "profession": "string"
+  }
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» firstName|string|true|none||firstName|
+  |» lastName|string|true|none||lastName|
+  |» email|string|true|none||email|
+  |» profession|string|true|none||profession|
+
+  ## PUT Atualizar um colaborador
+
+  PUT /api/v1/employee/{id}
+
+  > Body Parameters
+
+  ```json
+  {
+    "FirstName": "string",
+    "LastName": "string",
+    "Email": "string",
+    "Profession": "string"
+  }
+  ```
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+  |body|body|object| no |none|
+  |» FirstName|body|string| yes |none|
+  |» LastName|body|string| yes |none|
+  |» Email|body|string| yes |none|
+  |» Profession|body|string| yes |none|
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  {}
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+  ### Responses Data Schema
+
+  ## DELETE Deletar um colaborador
+
+  DELETE /api/v1/employee/{id}
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+
+  > Response Examples
+
+  > 204 Response
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|string|
+  |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|none|Inline|
+
+  ### Responses Data Schema
+
+  ## POST Criar um novo colaborador
+
+  POST /api/v1/employee/new
+
+  > Body Parameters
+
+  ```json
+  {
+    "FirstName": "string",
+    "LastName": "string",
+    "Email": "string",
+    "Profession": "string"
+  }
+  ```
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |body|body|object| no |none|
+  |» FirstName|body|string| yes |none|
+  |» LastName|body|string| yes |none|
+  |» Email|body|string| yes |none|
+  |» Profession|body|string| yes |none|
+
+  > Response Examples
+
+  > 201 Response
+
+  ```json
+  {}
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|Inline|
+</details>
+
+
+---
+
+<details>
+  <summary>Clientes</summary>
+
+  ## GET Buscar todos os clientes
+
+  GET /api/v1/costumer
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  [
+    {
+      "id": "string",
+      "name": "string",
+      "phoneNumber": "string"
+    }
+  ]
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» name|string|true|none||name|
+  |» phoneNumber|string|true|none||phoneNumber|
+
+  ## GET Buscar um cliente
+
+  GET /api/v1/costumer/{id}
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  {
+    "id": "string",
+    "name": "string",
+    "phoneNumber": "string"
+  }
+  ```
+
+  > 404 Response
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+  |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» name|string|true|none||name|
+  |» phoneNumber|string|true|none||phoneNumber|
+
+  ## PUT Atualizar um cliente
+
+  PUT /api/v1/costumer/{id}
+
+  > Body Parameters
+
+  ```json
+  {
+    "name": "string",
+    "phoneNumber": "string"
+  }
+  ```
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+  |body|body|object| no |none|
+  |» name|body|string| yes |name|
+  |» phoneNumber|body|string| yes |phoneNumber|
+
+  > Response Examples
+
+  > 200 Response
+
+  ```json
+  {
+    "id": "string",
+    "name": "string",
+    "phoneNumber": "string"
+  }
+  ```
+
+  > 404 Response
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+  |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **200**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» name|string|true|none||name|
+  |» phoneNumber|string|true|none||phoneNumber|
+
+  ## DELETE Deletar um cliente
+
+  DELETE /api/v1/costumer/{id}
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |id|path|string| yes |none|
+
+  > Response Examples
+
+  > 204 Response
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|null|
+  |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|none|Inline|
+
+  ### Responses Data Schema
+
+  ## POST Criar um novo cliente
+
+  POST /api/v1/costumer/new
+
+  > Body Parameters
+
+  ```json
+  {
+    "name": "string",
+    "phoneNumber": "string"
+  }
+  ```
+
+  ### Params
+
+  |Name|Location|Type|Required|Description|
+  |---|---|---|---|---|
+  |body|body|object| no |none|
+  |» name|body|string| yes |name|
+  |» phoneNumber|body|string| yes |phoneNumber|
+
+  > Response Examples
+
+  > 201 Response
+
+  ```json
+  {
+    "id": "string",
+    "name": "string",
+    "phoneNumber": "string"
+  }
+  ```
+
+  ### Responses
+
+  |HTTP Status Code |Meaning|Description|Data schema|
+  |---|---|---|---|
+  |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|Inline|
+
+  ### Responses Data Schema
+
+  HTTP Status Code **201**
+
+  |Name|Type|Required|Restrictions|Title|description|
+  |---|---|---|---|---|---|
+  |» id|string|true|none||ID|
+  |» name|string|true|none||name|
+  |» phoneNumber|string|true|none||phoneNumber|
+</details>
+
+
+---
+
+####
 
 <div align="center" >
 
