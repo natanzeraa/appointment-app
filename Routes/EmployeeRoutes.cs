@@ -1,7 +1,7 @@
 ﻿using AppointmentApplication.Data;
 using AppointmentApplication.Models;
 using AppointmentApplication.ViewModels;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace AppointmentApplication.Routes;
 
@@ -9,15 +9,34 @@ public static class EmployeeRoutes
 {
     public static WebApplication MapEmployeeRoutes(this WebApplication route)
     {
-        route.MapGet("/api/v1/employee", (AppDbContext context) =>
+        route.MapGet("/api/v1/employee", async (AppDbContext context) =>
         {
-            var employees = context.Employees;
+            var employees = await context.Employees
+                .Include(e => e.Appointments)
+                .Select(e => new
+                {
+                    e.Id,
+                    e.FirstName,
+                    e.LastName,
+                    e.Email,
+                    e.Profession,
+                    Appointments = e.Appointments.Select(a => new
+                    {
+                        a.Id,
+                        a.Start,
+                        a.End
+                    })
+                })
+                .ToListAsync();
             return employees is not null ? Results.Ok(employees) : Results.NotFound();
-        }).Produces<Employee>();
+        }).Produces<List<object>>();
 
-        route.MapGet("/api/v1/employee/{id}", (AppDbContext context, Guid Id) =>
+        route.MapGet("/api/v1/employee/{id}", async (Guid Id, AppDbContext context) =>
         {
-            var employee = context.Employees.Find(Id);
+            var employee = await context.Employees
+                .Include(e => e.Appointments)
+                .FirstOrDefaultAsync(e => e.Id == Id);
+
             return employee is not null ? Results.Ok(employee) : Results.NotFound("Colaborador não existe");
 
         }).Produces<Employee>();
