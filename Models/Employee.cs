@@ -7,4 +7,8 @@ public record Employee
     string LastName, 
     string Email, 
     string Profession
-);
+)
+{
+    public List<Appointment> Appointments { get; init; } = new();
+
+};
