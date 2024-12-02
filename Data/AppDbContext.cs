@@ -11,7 +11,7 @@ namespace AppointmentApplication.Data
         public required DbSet<Appointment> Appointments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("DataSource=app.db;Cache=Shared");
+            => options.UseNpgsql("Host=appointment.database;Port=5432;Database=appointmentdb;Username=postgres;Password=example");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
