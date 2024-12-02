@@ -9,6 +9,7 @@ public static class BuilderExtensions
         builder.Services.AddDbContext<AppDbContext>();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.WebHost.UseUrls("http://0.0.0.0:80");
         return builder;
     }
 }
