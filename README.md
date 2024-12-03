@@ -979,27 +979,26 @@ Depois que a API estiver rodando você pode acessar essa visualização através
 
 ---
 
-####
-
 <div align="center" >
 
-   <p>Autor</p>
+   <h4>Quem sou eu</h4>
 
    <img src="https://avatars.githubusercontent.com/u/172435339?v=4" alt="autor" width="120">
 
-   <pre>
-   Eu sou Natan Oliveira 👉 Web Developer desde 2022. 
-
-   Meu primeiro contato com tecnologia foi através do canal do grande mestre Fábio Akita, 
-   onde assisti seu vídeo sobre The DEFINITIVE UBUNTU Guide for Beginning Devs e desde então 
-   comecei aprender mais sobre esse universo até cair em liguagens de programação e desenvolvimento web. 
-   Comecei aprendendo JavaScript, HTML, Css e depois de entrar no mercado de trabalho gostei de backend 
-   onde estou até hoje com linguagens como C#, Java e Python.
-   
-   Sinta-se à vontade para me contatar através do Linkedin 👇
-   </pre>
+   <div align="center" >
+      <br>
+      <p>Eu sou Natan Oliveira 👉 Web Developer desde 2022.</p>
+      <p>Meu primeiro contato com tecnologia foi através do canal do grande mestre Fábio Akita,</br> 
+      onde assisti seu vídeo sobre The DEFINITIVE UBUNTU Guide for Beginning Devs e desde então </br> 
+      comecei aprender mais sobre esse universo até cair em liguagens de programação e desenvolvimento web. </br> 
+      Comecei aprendendo JavaScript, HTML, Css e depois de entrar no mercado de trabalho gostei de backend </br> 
+      onde estou até hoje com linguagens como C#, Java e Python.</p>
+      <h4>Sinta-se à vontade para me contatar através do Linkedin 👇</h4>
+   </div>
 
    [![My Skills](https://skillicons.dev/icons?i=linkedin&perline=4)](https://www.linkedin.com/in/natan-oliveira-71023822b/)
 
 </div>
+
+---
 
